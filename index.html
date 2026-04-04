@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="SAFAR - Book adventure treks, snow escapes and events across India." />
+  <meta name="author" content="Vigneshwari - 23SE02CS110" />
+  <title>SAFAR — The Event Booking</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+
+  <!-- Google Fonts: Playfair Display (headings) + Outfit (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Mobile menu toggle button (hidden on desktop) -->
+  <button id="mobile-menu-btn" aria-label="Open menu">☰</button>
+  <!-- Dark overlay when mobile menu is open -->
+  <div id="overlay"></div>
+
+  <div id="app">
+
+    <nav id="sidebar">
+
+      <!-- Brand -->
+      <div class="sidebar-brand">
+        <div class="brand-icon">🧭</div>
+        <div>
+          <div class="brand-name">SAFAR</div>
+          <div class="brand-sub">The Event Booking</div>
+        </div>
+      </div>
+
+      <ul class="sidebar-nav">
+        <li>
+          <a href="#" class="nav-link active" data-tab="home">
+            <span class="nav-icon">⌂</span>
+            <span class="nav-text">Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link" data-tab="explore">
+            <span class="nav-icon">✦</span>
+            <span class="nav-text">Explore Events</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link" data-tab="destinations">
+            <span class="nav-icon">❄</span>
+            <span class="nav-text">Destinations</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link" data-tab="packages">
+            <span class="nav-icon">◈</span>
+            <span class="nav-text">Packages</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link" data-tab="about">
+            <span class="nav-icon">◎</span>
+            <span class="nav-text">About Us</span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="nav-link" data-tab="contact">
+            <span class="nav-icon">✉</span>
+            <span class="nav-text">Contact</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <!--
+        -->
+        <a href="#" class="sidebar-login-btn" data-tab="contact">Login / Register</a>
+      </div>
+
+    </nav>
+    <!-- END sidebar -->
+
+
+    <main id="main-content">
+
+      <section id="tab-home" class="tab-content active">
+
+        <!-- HERO -->
+        <div class="hero-section">
+          <div class="hero-bg-blob"></div>
+          <div class="hero-bg-blob2"></div>
+
+          <div class="container-fluid">
+            <div class="row align-items-center g-5">
+
+              <div class="col-12 col-lg-7">
+                <span class="hero-tag">🧭 Explore India's Best Experiences</span>
+
+                <h1 class="hero-title">
+                  Adventure,<br />
+                  <span class="text-coral">Rediscovered.</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                  Trekking, Snow Escapes, Nature Trails &amp; Cultural
+                  Experiences — all in one place. Book your next SAFAR today.
+                </p>
+
+                <div class="hero-buttons">
+                  
+                  <a href="#" class="btn-primary-custom" data-tab="explore">Explore Events</a>
+                  <a href="#" class="btn-secondary-custom" data-tab="about">Learn More</a>
+                </div>
+
+                <div class="hero-pills">
+                  <span class="badge-pill">🏔️ Trekking</span>
+                  <span class="badge-pill">❄️ Snow</span>
+                  <span class="badge-pill">🌿 Nature</span>
+                  <span class="badge-pill">🏕️ Adventure</span>
+                </div>
+              </div>
+
+              <div class="col-12 col-lg-5 text-center">
+                
+                <img
+                  src="https://placehold.co/480x380/1D9E75/ffffff?text=SAFAR"
+                  alt="SAFAR Adventure Events"
+                  class="img-fluid hero-img"
+                />
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-strip">
+          <div class="container-fluid">
+            <div class="row text-center gy-3">
+              <div class="col-6 col-md-3">
+                <div class="stat-item">
+                  <!-- <strong> = bold with semantic meaning "important" -->
+                  <strong class="stat-number">50+</strong>
+                  <p class="stat-label">Events</p>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="stat-item">
+                  <strong class="stat-number">20+</strong>
+                  <p class="stat-label">Destinations</p>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="stat-item">
+                  <strong class="stat-number">5000+</strong>
+                  <p class="stat-label">Travelers</p>
+                </div>
+              </div>
+              <div class="col-6 col-md-3">
+                <div class="stat-item">
+                  <strong class="stat-number">4.9⭐</strong>
+                  <p class="stat-label">Rating</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- FEATURED EVENTS PREVIEW (3 cards) -->
+        <div class="home-events">
+          <div class="container-fluid">
+            <div class="section-header">
+              <h2 class="section-title">Featured Events</h2>
+              <p class="section-subtitle">Hand-picked adventures for you</p>
+            </div>
+           
+            <div class="row g-4" id="home-events-grid"></div>
+            <div class="text-center mt-4">
+              <a href="#" class="btn-outline-custom" data-tab="explore">View All Events →</a>
+            </div>
+          </div>
+        </div>
+
+        <footer class="site-footer">
+          <div class="container-fluid">
+            <div class="row gy-4">
+              <div class="col-12 col-md-4">
+
+                <h5 class="footer-brand">🧭 SAFAR</h5>
+                <p class="footer-text">Explore. Experience. Enjoy the Journey.</p>
+                <p class="footer-text"><em>"Every journey tells a story."</em></p>
+              </div>
+              <div class="col-6 col-md-4">
+
+                <h6 class="footer-heading">Quick Links</h6>
+                
+                <ul class="footer-links">
+                  <li><a href="#" data-tab="home">Home</a></li>
+                  <li><a href="#" data-tab="explore">Explore</a></li>
+                  <li><a href="#" data-tab="destinations">Destinations</a></li>
+                  <li><a href="#" data-tab="about">About</a></li>
+                  <li><a href="#" data-tab="contact">Contact</a></li>
+                </ul>
+              </div>
+              <div class="col-6 col-md-4">
+                <h6 class="footer-heading">Categories</h6>
+               
+                <ol class="footer-links">
+                  <li><a href="#">❄️ Snow Events</a></li>
+                  <li><a href="#">🏕️ Adventure</a></li>
+                  <li><a href="#">🏔️ Trekking</a></li>
+                  <li><a href="#">🌿 Nature</a></li>
+                </ol>
+              </div>
+            </div>
+
+            <hr class="footer-divider" />
+            <div class="text-center">
+             
+              <small class="footer-copy">
+                &copy; 2025 SAFAR &nbsp;|&nbsp; Made by
+                <strong>Vigneshwari</strong> (23SE02CS110) &nbsp;|&nbsp; Savani University
+              </small>
+            </div>
+          </div>
+        </footer>
+
+      </section>
+      <!-- END TAB: HOME -->
+
+      <section id="tab-explore" class="tab-content">
+        <div class="tab-page">
+          <div class="container-fluid">
+
+            <div class="section-header">
+              <h2 class="section-title">Explore Events</h2>
+              <p class="section-subtitle">Find your next adventure</p>
+            </div>
+
+            <div class="filter-bar">
+              <button class="filter-btn active" data-filter="all">All</button>
+              <button class="filter-btn" data-filter="snow">❄️ Snow</button>
+              <button class="filter-btn" data-filter="adventure">🏕️ Adventure</button>
+              <button class="filter-btn" data-filter="trekking">🏔️ Trekking</button>
+              <button class="filter-btn" data-filter="nature">🌿 Nature</button>
+            </div>
+
+            <div class="row g-4" id="explore-events-grid"></div>
+
+          </div>
+        </div>
+      </section>
+      <!-- END TAB: EXPLORE -->
+
+      <section id="tab-destinations" class="tab-content">
+        <div class="tab-page">
+          <div class="container-fluid">
+
+            <div class="section-header">
+              <h2 class="section-title">Popular Destinations</h2>
+              <p class="section-subtitle">From snowy peaks to desert sands</p>
+            </div>
+
+            <div class="slider-wrapper">
+              <button class="slider-btn" id="prev-btn" aria-label="Previous">&#8592;</button>
+              <div class="slider-track" id="slider-track">
+              
+                <figure class="slide">
+                  <img src="https://placehold.co/300x200/1a1a2e/E8593C?text=Jammu" alt="Jammu" />
+                  <figcaption>Jammu</figcaption>
+                </figure>
+                <figure class="slide">
+                  <img src="https://placehold.co/300x200/0f3460/ffffff?text=Manali" alt="Manali" />
+                  <figcaption>Manali</figcaption>
+                </figure>
+                <figure class="slide">
+                  <img src="https://placehold.co/300x200/993C1D/ffffff?text=Dalhousie" alt="Dalhousie" />
+                  <figcaption>Dalhousie</figcaption>
+                </figure>
+                <figure class="slide">
+                  <img src="https://placehold.co/300x200/0F6E56/ffffff?text=Ahmedabad" alt="Ahmedabad" />
+                  <figcaption>Ahmedabad</figcaption>
+                </figure>
+                <figure class="slide">
+                  <img src="https://placehold.co/300x200/534AB7/ffffff?text=Bangalore" alt="Bangalore" />
+                  <figcaption>Bangalore</figcaption>
+                </figure>
+                <figure class="slide">
+                  <img src="https://placehold.co/300x200/BA7517/ffffff?text=Kutch" alt="Kutch" />
+                  <figcaption>Kutch</figcaption>
+                </figure>
+              </div>
+              <button class="slider-btn" id="next-btn" aria-label="Next">&#8594;</button>
+            </div>
+
+            <!-- Destination Info Cards -->
+            <div class="row g-4 mt-4">
+              <div class="col-12 col-md-4">
+                <article class="dest-card">
+                  <h3 class="dest-name">❄️ Snow Destinations</h3>
+                  <ul class="dest-list">
+                    <li>Jammu &amp; Kashmir</li>
+                    <li>Manali, Himachal Pradesh</li>
+                    <li>Dalhousie</li>
+                  </ul>
+                  <p class="dest-desc">Experience pristine snow, frozen lakes and scenic mountain passes.</p>
+                </article>
+              </div>
+              <div class="col-12 col-md-4">
+                <article class="dest-card">
+                  <h3 class="dest-name">🏕️ Adventure Spots</h3>
+                  <ul class="dest-list">
+                    <li>Kutch, Gujarat</li>
+                    <li>Bangalore, Karnataka</li>
+                    <li>Ahmedabad</li>
+                  </ul>
+                  <p class="dest-desc">Desert camps, city adventures and cultural explorations.</p>
+                </article>
+              </div>
+              <div class="col-12 col-md-4">
+                <article class="dest-card">
+                  <h3 class="dest-name">🌿 Nature Escapes</h3>
+                  <ul class="dest-list">
+                    <li>Valley of Flowers, Uttarakhand</li>
+                    <li>Coorg, Karnataka</li>
+                    <li>Wayanad, Kerala</li>
+                  </ul>
+                  <p class="dest-desc">Lush forests, waterfalls and peaceful nature trails.</p>
+                </article>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+      <!-- END TAB: DESTINATIONS -->
+
+      <section id="tab-packages" class="tab-content">
+        <div class="tab-page">
+          <div class="container-fluid">
+
+            <div class="section-header">
+              <h2 class="section-title">Package Comparison</h2>
+              <p class="section-subtitle">Pick the right plan for your adventure</p>
+            </div>
+
+            <div class="table-responsive">
+              <table class="table table-bordered text-center safar-table">
+                <thead>
+                  <tr>
+                    <!-- scope="col" = this header describes a column (accessibility) -->
+                    <th scope="col">Feature</th>
+                    <th scope="col">Basic</th>
+                    <th scope="col" class="highlight-col">Adventure ⭐</th>
+                    <th scope="col">Premium</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <!-- <strong> = bold text with semantic importance -->
+                    <td><strong>Duration</strong></td>
+                    <td>1 Day</td>
+                    <td class="highlight-col">3 Days</td>
+                    <td>7 Days</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Accommodation</strong></td>
+                    <td>—</td>
+                    <td class="highlight-col">Tent Camp</td>
+                    <td>Hotel</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Meals</strong></td>
+                    <td>—</td>
+                    <td class="highlight-col">✅ Included</td>
+                    <td>✅ Included</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Expert Guide</strong></td>
+                    <td>—</td>
+                    <td class="highlight-col">✅ Yes</td>
+                    <td>✅ Yes</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Transport</strong></td>
+                    <td>—</td>
+                    <td class="highlight-col">—</td>
+                    <td>✅ Yes</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Price</strong></td>
+                    <td>₹999</td>
+                    <td class="highlight-col"><strong>₹3,499</strong></td>
+                    <td>₹8,999</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Package CTA Cards -->
+            <div class="row g-4 mt-4">
+              <div class="col-12 col-md-4">
+                <div class="pkg-card">
+                  <div class="pkg-name">Basic</div>
+                  <div class="pkg-price">₹999</div>
+                  <ul class="pkg-features">
+                    <li>✅ 1 Day event</li>
+                    <li>✅ Entry ticket</li>
+                    <li>❌ No accommodation</li>
+                    <li>❌ No meals</li>
+                  </ul>
+                  <a href="#" class="btn-outline-custom" data-tab="contact">Book Now</a>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="pkg-card featured">
+                  <div class="pkg-badge">Most Popular</div>
+                  <div class="pkg-name">Adventure</div>
+                  <div class="pkg-price">₹3,499</div>
+                  <ul class="pkg-features">
+                    <li>✅ 3 Days event</li>
+                    <li>✅ Tent accommodation</li>
+                    <li>✅ All meals included</li>
+                    <li>✅ Expert guide</li>
+                  </ul>
+                  <a href="#" class="btn-primary-custom" data-tab="contact">Book Now</a>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="pkg-card">
+                  <div class="pkg-name">Premium</div>
+                  <div class="pkg-price">₹8,999</div>
+                  <ul class="pkg-features">
+                    <li>✅ 7 Days event</li>
+                    <li>✅ Hotel stay</li>
+                    <li>✅ All meals included</li>
+                    <li>✅ Transport included</li>
+                  </ul>
+                  <a href="#" class="btn-outline-custom" data-tab="contact">Book Now</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+      <!-- END TAB: PACKAGES -->
+
+      <section id="tab-about" class="tab-content">
+        <div class="tab-page">
+          <div class="container-fluid">
+
+            <div class="row align-items-center g-5 mb-5">
+              <div class="col-12 col-lg-6">
+                <h2 class="section-title">About SAFAR</h2>
+                <!--
+                  Multiple <p> paragraphs
+                  Each starts on new line with space below
+                -->
+                <p class="about-text">
+                  SAFAR is more than just an event booking platform — it's
+                  a journey to explore experiences that make life exciting
+                  and meaningful.
+                </p>
+                <p class="about-text">
+                  We help people discover adventures, treks, nature escapes,
+                  and unique events across India, all in one place.
+                </p>
+                <p class="about-text">
+                  Our goal is to make planning simple, fun, and accessible
+                  for everyone who loves travel and exploration.
+                </p>
+
+                <!-- Unordered list — order does NOT matter -->
+                <h3 class="about-subhead">Why Choose SAFAR?</h3>
+                <ul class="about-list">
+                  <li>✅ 50+ curated events across India</li>
+                  <li>✅ Easy OTP-based mobile login</li>
+                  <li>✅ Expert local guides on every trip</li>
+                  <li>✅ 100% verified and safe bookings</li>
+                </ul>
+
+                <!-- Ordered list — ORDER matters (steps) -->
+                <h3 class="about-subhead">How to Book:</h3>
+                <ol class="about-list">
+                  <li>Browse events and pick your adventure</li>
+                  <li>Login with your mobile OTP</li>
+                  <li>Select date and number of tickets</li>
+                  <li>Confirm and get WhatsApp confirmation</li>
+                </ol>
+              </div>
+
+              <div class="col-12 col-lg-6 text-center">
+                <img
+                  src="https://placehold.co/480x340/1D9E75/ffffff?text=Our+Story"
+                  alt="About SAFAR — Our Story"
+                  class="img-fluid about-img"
+                />
+              </div>
+            </div>
+
+            <!-- Team / Info cards -->
+            <div class="row g-4">
+              <div class="col-12 col-md-4">
+                <div class="info-card">
+                  <div class="info-icon">🎯</div>
+                  <!-- h3 = third level heading for card titles -->
+                  <h3 class="info-title">Our Mission</h3>
+                  <p class="info-text">Make adventure accessible for every Indian traveler.</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="info-card">
+                  <div class="info-icon">👁️</div>
+                  <h3 class="info-title">Our Vision</h3>
+                  <p class="info-text">Be India's most trusted adventure experience platform.</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <div class="info-card">
+                  <div class="info-icon">💎</div>
+                  <h3 class="info-title">Our Values</h3>
+                  <p class="info-text">Safety, authenticity, and unforgettable memories.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+      <!-- END TAB: ABOUT -->
+
+      <section id="tab-contact" class="tab-content">
+        <div class="tab-page">
+          <div class="container-fluid">
+
+            <div class="section-header">
+              <h2 class="section-title">Contact Us</h2>
+              <p class="section-subtitle">Book your adventure or send a message</p>
+            </div>
+
+            <div class="row justify-content-center">
+              <div class="col-12 col-md-10 col-lg-8">
+
+                
+                <form id="contact-form" action="#" method="POST" novalidate class="safar-form">
+                  <div class="row g-3">
+
+                    <!-- type="text" — single line text -->
+                    <div class="col-12 col-md-6">
+                      <!--
+                        <label for="inp-name"> links to <input id="inp-name">
+                        Clicking label focuses the input (UX improvement)
+                      -->
+                      <label for="inp-name" class="form-label">
+                        Full Name <span class="required">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        id="inp-name"
+                        name="name"
+                        class="form-control"
+                        placeholder="Your full name"
+                        required
+                        autocomplete="name"
+                      />
+                      <div class="error-msg" id="err-name"></div>
+                    </div>
+
+                    <!-- type="email" — validates @ and . automatically -->
+                    <div class="col-12 col-md-6">
+                      <label for="inp-email" class="form-label">
+                        Email <span class="required">*</span>
+                      </label>
+                      <input
+                        type="email"
+                        id="inp-email"
+                        name="email"
+                        class="form-control"
+                        placeholder="you@example.com"
+                        required
+                        autocomplete="email"
+                      />
+                      <div class="error-msg" id="err-email"></div>
+                    </div>
+
+                    <!-- type="tel" — numeric keyboard on mobile -->
+                    <div class="col-12 col-md-6">
+                      <label for="inp-mobile" class="form-label">
+                        Mobile <span class="required">*</span>
+                      </label>
+                      <input
+                        type="tel"
+                        id="inp-mobile"
+                        name="mobile"
+                        class="form-control"
+                        placeholder="10-digit number"
+                        maxlength="10"
+                        pattern="[0-9]{10}"
+                        required
+                      />
+                      <div class="error-msg" id="err-mobile"></div>
+                    </div>
+
+                    <!-- <select> dropdown + <option> items -->
+                    <div class="col-12 col-md-6">
+                      <label for="inp-category" class="form-label">Interested In</label>
+                      <select id="inp-category" name="category" class="form-select">
+                        <option value="">-- Select category --</option>
+                        <option value="snow">❄️ Snow Events</option>
+                        <option value="adventure">🏕️ Adventure</option>
+                        <option value="trekking">🏔️ Trekking</option>
+                        <option value="nature">🌿 Nature Escapes</option>
+                      </select>
+                    </div>
+
+                    <!-- <textarea> — multiline text, needs closing tag -->
+                    <div class="col-12">
+                      <label for="inp-message" class="form-label">Message</label>
+                      <textarea
+                        id="inp-message"
+                        name="message"
+                        class="form-control"
+                        rows="4"
+                        placeholder="Tell us about your dream adventure..."
+                      ></textarea>
+                    </div>
+
+                    <!-- Radio buttons — same name = only ONE selectable -->
+                    <div class="col-12">
+                      <label class="form-label">Group Size</label>
+                      <div class="d-flex gap-4 flex-wrap">
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio"
+                                 name="group-size" id="r-solo" value="solo" checked />
+                          <label class="form-check-label" for="r-solo">Solo</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio"
+                                 name="group-size" id="r-couple" value="couple" />
+                          <label class="form-check-label" for="r-couple">Couple</label>
+                        </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio"
+                                 name="group-size" id="r-group" value="group" />
+                          <label class="form-check-label" for="r-group">Group (4+)</label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Checkbox — tick/untick, required = must tick to submit -->
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox"
+                               id="chk-terms" name="terms" required />
+                        <label class="form-check-label" for="chk-terms">
+                          I agree to the
+                          <a href="#" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+                        </label>
+                        <div class="error-msg" id="err-terms"></div>
+                      </div>
+                    </div>
+
+                    <!-- type="submit" — triggers form submit event -->
+                    <div class="col-12">
+                      <button type="submit" class="btn-submit w-100" id="submit-btn">
+                        Send Message 🚀
+                      </button>
+                    </div>
+
+                    <div class="col-12">
+                      <!-- d-none = Bootstrap: display:none (hidden by default) -->
+                      <div id="success-msg" class="success-msg d-none">
+                        ✅ Message sent! We'll contact you soon.
+                      </div>
+                    </div>
+
+                  </div>
+                </form>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+      <!-- END TAB: CONTACT -->
+
+
+    </main>
+    <!-- END main-content -->
+
+  </div>
+  <!-- END #app -->
+
+
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- MODULE 5: Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- MODULE 3+4: Our JS file -->
+  <script src="script.js"></script>
+
+</body>
+</html>
