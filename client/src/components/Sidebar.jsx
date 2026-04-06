@@ -43,6 +43,8 @@ export default function Sidebar() {
   // isOpen = current value (false = closed by default)
   // setIsOpen = function to update isOpen
   const [isOpen, setIsOpen] = useState(false)
+  const [showModal, setShowModal] = useState(false)
+  const [user, setUser] = useState(null)   
 
   // useLocation — gives us the current URL
   // e.g. if URL is /explore, location.pathname = '/explore'
@@ -131,15 +133,75 @@ export default function Sidebar() {
         </ul>
 
         {/* Login Button at bottom */}
-        <div className="sidebar-footer">
-          <NavLink
-            to="/contact"
-            className="sidebar-login-btn"
-            onClick={() => setIsOpen(false)}
-          >
-            Login / Register
-          </NavLink>
-        </div>
+       <div className="sidebar-footer">
+  {user ? (
+    // ── LOGGED IN — show circle with initial ──
+    <div style={{
+      display:    'flex',
+      alignItems: 'center',
+      gap:        '10px',
+    }}>
+      {/* Circle with first letter */}
+      <div style={{
+        width:          '38px',
+        height:         '38px',
+        borderRadius:   '50%',
+        background:     '#E8593C',
+        color:          '#fff',
+        display:        'flex',
+        alignItems:     'center',
+        justifyContent: 'center',
+        fontWeight:     700,
+        fontSize:       '16px',
+        textTransform:  'uppercase',
+        flexShrink:     0,
+      }}>
+        {user.name.charAt(0)}
+      </div>
+
+      {/* Name */}
+      <span style={{
+        color:     '#fff',
+        fontSize:  '13px',
+        fontWeight: 600,
+        flex:       1,
+        overflow:   'hidden',
+        textOverflow: 'ellipsis',
+        whiteSpace: 'nowrap',
+      }}>
+        {user.name}
+      </span>
+
+      {/* Logout */}
+      <button
+        onClick={() => setUser(null)}
+        style={{
+          background:   'transparent',
+          border:       '1px solid #555',
+          color:        '#aaa',
+          fontSize:     '11px',
+          padding:      '4px 8px',
+          borderRadius: '6px',
+          cursor:       'pointer',
+        }}
+      >
+        Out
+      </button>
+    </div>
+
+  ) : (
+    // ── NOT LOGGED IN — show login button ──
+    <button
+      className="sidebar-login-btn"
+      onClick={() => {
+        setIsOpen(false)
+        setShowModal(true)
+      }}
+    >
+      Login / Register
+    </button>
+  )}
+</div>
 
       </nav>
 
@@ -251,6 +313,115 @@ export default function Sidebar() {
           .mobile-menu-btn { display: flex; align-items: center; justify-content: center; }
         }
       `}</style>
+      {showModal && (
+  <div style={modalStyles.overlay} onClick={() => setShowModal(false)}>
+    <div style={modalStyles.box} onClick={e => e.stopPropagation()}>
+
+      <h2 style={modalStyles.title}>🧭 Login / Register</h2>
+      <p style={modalStyles.sub}>Enter your details to continue</p>
+
+      <input
+        style={modalStyles.input}
+        placeholder="Your Name"
+        id="modal-name"
+      />
+      <input
+        style={modalStyles.input}
+        placeholder="Mobile Number"
+        id="modal-mobile"
+      />
+
+      <button
+        style={modalStyles.btn}
+        onClick={async () => {
+          const name   = document.getElementById('modal-name').value
+          const mobile = document.getElementById('modal-mobile').value
+
+          if (!name || !mobile) {
+            alert('Please fill both fields!')
+            return
+          }
+
+          try {
+            const res  = await fetch('http://localhost:5000/api/auth/login', {
+              method:  'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body:    JSON.stringify({ name, mobile })
+            })
+            const data = await res.json()
+            alert('✅ ' + data.message)
+            setUser(data.user)
+            setShowModal(false)
+          } catch (err) {
+            alert('❌ Server not running! Start your backend.')
+          }
+        }}
+      >
+        Login / Register
+      </button>
+
+      <button
+        style={modalStyles.close}
+        onClick={() => setShowModal(false)}
+      >
+        ✕ Close
+      </button>
+
+    </div>
+  </div>
+)}
     </>
+
+    
   )
+}
+
+const modalStyles = {
+  overlay: {
+    position:       'fixed', inset: 0,
+    background:     'rgba(0,0,0,0.7)',
+    zIndex:         2000,
+    display:        'flex',
+    alignItems:     'center',
+    justifyContent: 'center',
+  },
+  box: {
+    background:   '#1e1e2e',
+    border:       '1px solid #333',
+    borderRadius: '16px',
+    padding:      '36px',
+    width:        '340px',
+    display:      'flex',
+    flexDirection:'column',
+    gap:          '12px',
+  },
+  title: { color: '#fff',  fontSize: '22px', margin: 0         },
+  sub:   { color: '#aaa',  fontSize: '13px', margin: 0         },
+  input: {
+    padding:      '10px 14px',
+    borderRadius: '8px',
+    border:       '1px solid #444',
+    background:   '#2a2a3e',
+    color:        '#fff',
+    fontSize:     '14px',
+    outline:      'none',
+  },
+  btn: {
+    padding:      '12px',
+    background:   '#E8593C',
+    color:        '#fff',
+    border:       'none',
+    borderRadius: '8px',
+    fontWeight:   700,
+    cursor:       'pointer',
+    fontSize:     '14px',
+  },
+  close: {
+    padding:    '8px',
+    background: 'transparent',
+    color:      '#aaa',
+    border:     '1px solid #444',
+    borderRadius:'8px',
+    cursor:     'pointer',
+  }
 }

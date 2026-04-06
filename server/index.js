@@ -1,5 +1,4 @@
 // server/index.js — SAFAR Backend
-// MODULE 7: Node.js + Express
 
 const express  = require('express')
 const mongoose = require('mongoose')

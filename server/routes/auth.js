@@ -1,5 +1,4 @@
 // routes/auth.js — Simple Login Route
-// MODULE 7: Node.js Routing
 
 const express = require('express')
 const router  = express.Router()
